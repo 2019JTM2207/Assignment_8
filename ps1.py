@@ -10,37 +10,41 @@ count = 0
 while y!=0:
 	y = round(y/10)
 	count = count+1
-print("Total bits in the data ", count)
+#print("Total bits in the data ", count)
 
 #Convert string to list
 
-digits = [int(d) for d in str(n)]
-print (digits)
+bits = [int(d) for d in str(n)]
+#print (bits)
 
-c1 = 0
-c2 = 0
+#counting number of 1's in the enter binary bit data that has to be transmitted.
 
-for i in digits:
+
+count1 = 0
+for i in bits:
 	if i == 1:
-		c1 = c1+1
+		count1 = count1+1
 	else:
-		if c1/2 == 0:
-			digits.append('1')
-			print(digits)
-		else:
-			print(digits)
-			
-word = n
-print(split(word)) 
+		count = count
+
+#adding parity bit in end of the data		
+if count1%2 == 0:
+	bits.append(1)
+	#print(bits)
+else:
+	bits.append(0)
+	#print(bits)
+
+#convert list into string
+
+modifiedstring = ''.join(str(e) for e in bits)		
+print("Parity bit data :",modifiedstring)
 
 #The string 0101 is used as the bit string or flag to indicate the end of the frame.
 m = "0101"
-o = n+m
-print(o)
-x = "010" in n
-print(x)
-z = n.index("010")
-print(z)
+o = modifiedstring+m
+print("Transmitting data: ",o)
+
 
 
 
